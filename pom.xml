@@ -64,6 +64,14 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!--
+                Side note: Without any plugin, Maven does not test anything.
+            -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
         </plugins>
     </build>
 </project>

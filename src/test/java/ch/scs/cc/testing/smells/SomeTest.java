@@ -9,7 +9,6 @@ public class SomeTest {
 
     private FlightNumber validFlightNumber = FlightNumber.fromString("1");
 
-
     /**
      * page 187
      */
@@ -22,5 +21,12 @@ public class SomeTest {
         assertEquals(newFlight.getNumber(), validFlightNumber);
         assertEquals(newFlight.getAirlineCode(), "");
         assertNull(newFlight.getAirline());
+        // set up mileage
+        newFlight.setMileage(1122);
+        // exercise mileage translator
+        int actualKilometres = newFlight.getMileageAsKm();
+        // verify results
+        int expectedKilometres = 1810;
+        assertEquals(expectedKilometres, actualKilometres);
     }
 }

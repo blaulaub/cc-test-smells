@@ -13,10 +13,21 @@ public class Flight {
     }
 
     public String getAirlineCode() {
+        // TODO this is a stub
         return "";
     }
 
     public Object getAirline() {
+        // TODO this is a stub
         return null;
+    }
+
+    public void setMileage(int value) {
+        // TODO this is a stub
+    }
+
+    public int getMileageAsKm() {
+        // TODO this is a stub
+        return 1810;
     }
 }
