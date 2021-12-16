@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class SomeTest {
 
-    private Object validFlightNumber = 1;
+    private FlightNumber validFlightNumber = FlightNumber.fromString("1");
 
     @Test
     void testFlightMileage_asKm2() throws Exception {

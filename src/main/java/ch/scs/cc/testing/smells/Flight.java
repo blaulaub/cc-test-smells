@@ -1,6 +1,6 @@
 package ch.scs.cc.testing.smells;
 
 public class Flight {
-    public Flight(Object validFlightNumber) {
+    public Flight(FlightNumber validFlightNumber) {
     }
 }
