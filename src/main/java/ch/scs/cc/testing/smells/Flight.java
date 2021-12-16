@@ -4,6 +4,8 @@ public class Flight {
 
     private final FlightNumber flightNumber;
 
+    private boolean cancelled;
+
     public Flight(FlightNumber flightNumber) {
         this.flightNumber = flightNumber;
     }
@@ -26,8 +28,17 @@ public class Flight {
         // TODO this is a stub
     }
 
-    public int getMileageAsKm() {
+    public int getMileageAsKm() throws InvalidRequestException {
         // TODO this is a stub
-        return 1810;
+        if (cancelled) {
+            throw new InvalidRequestException("Cannot get cancelled flight mileage");
+        } else {
+            return 1810;
+        }
+    }
+
+    public void cancel() {
+        // TODO this is a stub
+        cancelled = true;
     }
 }

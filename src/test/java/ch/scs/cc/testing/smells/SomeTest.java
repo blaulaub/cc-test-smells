@@ -2,8 +2,7 @@ package ch.scs.cc.testing.smells;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SomeTest {
 
@@ -28,5 +27,13 @@ public class SomeTest {
         // verify results
         int expectedKilometres = 1810;
         assertEquals(expectedKilometres, actualKilometres);
+        // now try it with a canceled flight
+        newFlight.cancel();
+        try {
+            newFlight.getMileageAsKm();
+            fail("Expected exception");
+        } catch (InvalidRequestException e) {
+            assertEquals("Cannot get cancelled flight mileage", e.getMessage());
+        }
     }
 }
