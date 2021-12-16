@@ -1,10 +1,12 @@
 package ch.scs.cc.testing.smells;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Facade {
-    public List getFlightsByOriginAirportCode(String airportCode) {
+
+    public List<FlightDto> getFlightsByOriginAirportCode(String airportCode) {
         // TODO this is a stub
-        return null;
+        return Collections.singletonList(FlightDto.fromOrigin("Calgary"));
     }
 }
