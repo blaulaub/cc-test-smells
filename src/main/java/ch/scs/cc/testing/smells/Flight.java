@@ -11,4 +11,8 @@ public class Flight {
     public FlightNumber getNumber() {
         return this.flightNumber;
     }
+
+    public String getAirlineCode() {
+        return "";
+    }
 }

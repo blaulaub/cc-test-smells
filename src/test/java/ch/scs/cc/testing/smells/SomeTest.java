@@ -18,6 +18,7 @@ public class SomeTest {
         // exercise constructor
         Flight newFlight = new Flight(validFlightNumber);
         // verify constructed object
-        assertEquals(validFlightNumber, newFlight.getNumber());
+        assertEquals(newFlight.getNumber(), validFlightNumber);
+        assertEquals(newFlight.getAirlineCode(), "");
     }
 }
