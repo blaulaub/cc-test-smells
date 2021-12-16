@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SomeTest {
+public class EagerTest {
 
     private FlightNumber validFlightNumber = FlightNumber.fromString("1");
 
