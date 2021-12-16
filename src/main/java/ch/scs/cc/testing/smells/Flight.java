@@ -15,4 +15,8 @@ public class Flight {
     public String getAirlineCode() {
         return "";
     }
+
+    public Object getAirline() {
+        return null;
+    }
 }

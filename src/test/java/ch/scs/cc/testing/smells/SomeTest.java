@@ -3,6 +3,7 @@ package ch.scs.cc.testing.smells;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class SomeTest {
 
@@ -20,5 +21,6 @@ public class SomeTest {
         // verify constructed object
         assertEquals(newFlight.getNumber(), validFlightNumber);
         assertEquals(newFlight.getAirlineCode(), "");
+        assertNull(newFlight.getAirline());
     }
 }
