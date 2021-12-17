@@ -1,11 +1,7 @@
 using System;
-using System.IO;
-using System.Globalization;
-using System.Linq;
-using System.Reflection;
+using System.Collections.Generic;
 
 using NUnit.Framework;
-using CsvHelper;
 
 using BackingCode;
 
@@ -16,6 +12,8 @@ public class MysteryGuest
     public void TestGetFlightsByFromAirport_OneOutboundFlight_mg()
     {
         LoadAirportsAndFlightsFromFile("test-flights.csv");
+        // Exercise System
+        List<FlightDto> flightsAtOrigin = facade.GetFlightsByOriginAirportCode("YYC");
     }
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

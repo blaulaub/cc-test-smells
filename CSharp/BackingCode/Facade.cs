@@ -1,7 +1,8 @@
 namespace BackingCode
 {
 
-    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class Facade
     {
@@ -10,6 +11,11 @@ namespace BackingCode
         public Facade(FlightRepository flightRepository)
         {
             this.flightRepository = flightRepository;
+        }
+
+        public List<FlightDto> GetFlightsByOriginAirportCode(string airportCode)
+        {
+            return flightRepository.FindByOriginAirportCode(airportCode).ToList<FlightDto>();
         }
     }
 }
