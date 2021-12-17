@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.IO;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
 
 using CsvHelper;
@@ -56,5 +57,23 @@ public class FixtureHelper
                 DestinationAirportCode = "ZRH"
             }
         }.ToList<FlightDto>().ForEach(it => flightRepository.Save(it));
+    }
+
+    public FlightDto FindOneOutboundFlight()
+    {
+        return flightRepository.FindAll()
+            .GroupBy(it => it.OriginAirportCode)
+            .Where(it => it.Count() == 1)
+            .Select(it => it.First())
+            .First();
+    }
+
+    public List<FlightDto> FindTwoOutboundFlightsFromOneAirport()
+    {
+        return flightRepository.FindAll()
+            .GroupBy(it => it.OriginAirportCode)
+            .Where(it => it.Count() == 2)
+            .Select(it => it.First())
+            .ToList();
     }
 }

@@ -12,12 +12,14 @@ public class GeneralFixture
     public void TestGetFlightsByFromAirport_OneOutboundFlight()
     {
         SetupStandardAirportsAndFlights();
+        FlightDto outboundFlight = FindOneOutboundFlight();
     }
 
     [Test]
     public void TestGetFlightsByFromAirport_TwoOutboundFlights()
     {
         SetupStandardAirportsAndFlights();
+        List<FlightDto> outboundFlights = FindTwoOutboundFlightsFromOneAirport();
     }
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -37,4 +39,6 @@ public class GeneralFixture
     }
 
     private void SetupStandardAirportsAndFlights() => helper.SetupStandardAirportsAndFlights();
+    private FlightDto FindOneOutboundFlight() => helper.FindOneOutboundFlight();
+    private List<FlightDto> FindTwoOutboundFlightsFromOneAirport() => helper.FindTwoOutboundFlightsFromOneAirport();
 }
