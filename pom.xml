@@ -20,6 +20,7 @@
 
         <!-- testing -->
         <junit-jupiter.version>5.8.2</junit-jupiter.version>
+        <commons-csv.version>1.9.0</commons-csv.version>
     </properties>
 
     <dependencies>
@@ -35,6 +36,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>${commons-csv.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
