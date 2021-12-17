@@ -10,6 +10,8 @@ public class EagerTest
         // set up fixture
         // exercise constructor
         Flight newFlight = new Flight(validFlightNumber);
+        // verify constructed object
+        Assert.AreEqual(validFlightNumber, newFlight.FlightNumber);
 
         // TODO this test is a stub
     }

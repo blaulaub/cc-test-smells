@@ -1,10 +1,16 @@
-﻿using System;
-
 namespace BackingCode
 {
+
+    using System;
+
     public class Flight
     {
 
-        public Flight(string flightNumber) { }
+        public string FlightNumber { get; }
+
+        public Flight(string flightNumber)
+        {
+            FlightNumber = flightNumber;
+        }
     }
 }
