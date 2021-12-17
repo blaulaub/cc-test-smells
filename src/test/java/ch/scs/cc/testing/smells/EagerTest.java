@@ -4,13 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/** See 'Cause: Eager Test' on page 187 */
 public class EagerTest {
 
-    private FlightNumber validFlightNumber = FlightNumber.fromString("1");
-
-    /**
-     * page 187
-     */
     @Test
     void testFlightMileage_asKm2() throws Exception {
         // set up fixture
@@ -36,4 +32,12 @@ public class EagerTest {
             assertEquals("Cannot get cancelled flight mileage", e.getMessage());
         }
     }
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    // above originates from the text book
+    // ------------------------------------
+    // below was added to make it work
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    private FlightNumber validFlightNumber = FlightNumber.fromString("1");
 }

@@ -8,23 +8,8 @@ import java.util.List;
 import static ch.scs.cc.testing.helpers.AssertionHelper.assertExactlyTwoFlightsInDtoList;
 import static ch.scs.cc.testing.helpers.AssertionHelper.assertOnlyFlightInDtoList;
 
+/** See 'Cause: General Fixture' on page 190 */
 public class GeneralFixtureTest {
-
-    private FlightRepository flightRepository = new FlightRepository();
-    private FixtureHelper helper = new FixtureHelper(flightRepository);
-    private Facade facade = new Facade(flightRepository);
-
-    private void setupStandardAirportsAndFlights() {
-        helper.setupStandardAirportsAndFlights();
-    }
-
-    private FlightDto findOneOutboundFlight() {
-        return helper.findOneOutboundFlight();
-    }
-
-    private List<FlightDto> findTwoOutboundFlightsFromOneAirport() {
-        return helper.findTwoOutboundFlightsFromOneAirport();
-    }
 
     @Test
     void testGetFlightsByFromAirport_OneOutboundFlight() throws Exception {
@@ -44,5 +29,27 @@ public class GeneralFixtureTest {
         List<FlightDto> flightsAtOrigin = facade.getFlightsByOriginAirport(outboundFlights.get(0).originAirportCode());
         // Verify Outcome
         assertExactlyTwoFlightsInDtoList("Flights at origin", outboundFlights, flightsAtOrigin);
+    }
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    // above originates from the text book
+    // ------------------------------------
+    // below was added to make it work
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    private final FlightRepository flightRepository = new FlightRepository();
+    private final FixtureHelper helper = new FixtureHelper(flightRepository);
+    private final Facade facade = new Facade(flightRepository);
+
+    private void setupStandardAirportsAndFlights() {
+        helper.setupStandardAirportsAndFlights();
+    }
+
+    private FlightDto findOneOutboundFlight() {
+        return helper.findOneOutboundFlight();
+    }
+
+    private List<FlightDto> findTwoOutboundFlightsFromOneAirport() {
+        return helper.findTwoOutboundFlightsFromOneAirport();
     }
 }
