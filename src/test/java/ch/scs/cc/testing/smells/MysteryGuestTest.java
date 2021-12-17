@@ -11,14 +11,14 @@ public class MysteryGuestTest {
     private Facade facade = new Facade();
 
     private void loadAirportsAndFlightsFromFile(String fileName) {
-        // TODO this is a stub
+        // TODO this test helper is a stub
     }
 
     /**
      * page 188
      */
     @Test
-    void dummy() {
+    void testGetFlightsByFromAirport_OneOutboundFlight_mg() {
         loadAirportsAndFlightsFromFile("test-flights.csv");
         // Exercise System
         List<FlightDto> flightsAtOrigin = facade.getFlightsByOriginAirportCode("YYC");
