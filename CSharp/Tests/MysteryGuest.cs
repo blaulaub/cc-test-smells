@@ -14,6 +14,10 @@ public class MysteryGuest
         LoadAirportsAndFlightsFromFile("test-flights.csv");
         // Exercise System
         List<FlightDto> flightsAtOrigin = facade.GetFlightsByOriginAirportCode("YYC");
+        // Verify Outcome
+        Assert.AreEqual(1, flightsAtOrigin.Count);
+        FlightDto firstFlight = flightsAtOrigin[0];
+        Assert.AreEqual("Calgary", firstFlight.OriginCity);
     }
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

@@ -22,7 +22,7 @@ public class FixtureHelper
     {
         var assembly = Assembly.GetAssembly(typeof(FixtureHelper));
         var assemblyName = assembly.GetName().Name;
-        var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture) { HeaderValidated = null };
+        var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture) { HasHeaderRecord = false };
         using (var stream = assembly.GetManifestResourceStream($"{assemblyName}.{fileName}"))
         using (var reader = new StreamReader(stream))
         using (var csvParser = new CsvReader(reader, csvConfig))
