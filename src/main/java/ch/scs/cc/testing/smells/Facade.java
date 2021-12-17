@@ -1,7 +1,8 @@
 package ch.scs.cc.testing.smells;
 
-import java.util.Collections;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class Facade {
 
@@ -13,7 +14,7 @@ public class Facade {
 
     public List<FlightDto> getFlightsByOriginAirportCode(String airportCode) {
         // TODO this is a stub
-        return flightRepository.findByOriginAirportCode(airportCode);
+        return flightRepository.findByOriginAirportCode(airportCode).collect(toList());
     }
 
     public List<FlightDto> getFlightsByOriginAirport(String airportId) {

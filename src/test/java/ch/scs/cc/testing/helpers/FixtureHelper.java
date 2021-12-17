@@ -6,8 +6,11 @@ import org.apache.commons.csv.CSVFormat;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
+
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.groupingBy;
 
 public class FixtureHelper {
 
@@ -21,29 +24,58 @@ public class FixtureHelper {
 
         CSVFormat.DEFAULT
                 .parse(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fileName)))
-                        .forEach(record -> {
-                            var originCity = record.get(0);
-                            var originCode = record.get(1);
-                            flightRepository.save(
-                                    new FlightDto.Builder()
-                                            .originCity(record.get(0))
-                                            .originAirportCode(record.get(1))
-                                            .build());
-                        });
+                .forEach(record -> {
+                    var originCity = record.get(0);
+                    var originCode = record.get(1);
+                    flightRepository.save(
+                            new FlightDto.Builder()
+                                    .originCity(record.get(0))
+                                    .originAirportCode(record.get(1))
+                                    .destinationCity(record.get(2))
+                                    .destinationAirportCode(record.get(2))
+                                    .build());
+                });
     }
 
     public void setupStandardAirportsAndFlights() {
-        // TODO this test helper is a stub
+        asList(
+                new FlightDto.Builder()
+                        .originCity("San Francisco")
+                        .originAirportCode("SFO")
+                        .destinationCity("Los Angeles")
+                        .destinationAirportCode("LAX")
+                        .build(),
+                new FlightDto.Builder()
+                        .originCity("San Francisco")
+                        .originAirportCode("SFO")
+                        .destinationCity("Zurich")
+                        .destinationAirportCode("ZRH")
+                        .build(),
+                new FlightDto.Builder()
+                        .originCity("Los Angeles")
+                        .originAirportCode("LAX")
+                        .destinationCity("Zurich")
+                        .destinationAirportCode("ZRH")
+                        .build()
+        ).forEach(flightRepository::save);
     }
 
     public FlightDto findOneOutboundFlight() {
-        // TODO this test helper is a stub
-        return null;
+        return flightRepository.findAll()
+                .collect(groupingBy(FlightDto::originAirportCode))
+                .values().stream()
+                .filter(it -> it.size() == 1)
+                .findAny()
+                .orElseThrow(NoSuchElementException::new)
+                .get(0);
     }
 
     public List<FlightDto> findTwoOutboundFlightsFromOneAirport() {
-        // TODO this test helper is a stub
-        return Collections.emptyList();
+        return flightRepository.findAll()
+                .collect(groupingBy(FlightDto::originAirportCode))
+                .values().stream()
+                .filter(it -> it.size() == 2)
+                .findAny()
+                .orElseThrow(NoSuchElementException::new);
     }
-
 }
