@@ -12,6 +12,8 @@ public class EagerTest
         Flight newFlight = new Flight(validFlightNumber);
         // verify constructed object
         Assert.AreEqual(validFlightNumber, newFlight.FlightNumber);
+        Assert.AreEqual("", newFlight.AirlineCode);
+        Assert.IsNull(newFlight.Airline);
 
         // TODO this test is a stub
     }
