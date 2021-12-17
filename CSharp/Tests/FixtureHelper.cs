@@ -33,4 +33,28 @@ public class FixtureHelper
             }
         }
     }
+
+    public void SetupStandardAirportsAndFlights()
+    {
+        new[] {
+            new FlightDto {
+                OriginCity = "San Francisco",
+                OriginAirportCode = "SFO",
+                DestinationCity = "Los Angeles",
+                DestinationAirportCode = "LAX"
+            },
+            new FlightDto {
+                OriginCity = "San Francisco",
+                OriginAirportCode = "SFO",
+                DestinationCity = "Zurich",
+                DestinationAirportCode = "ZRH"
+            },
+            new FlightDto {
+                OriginCity = "Los Angeles",
+                OriginAirportCode = "LAX",
+                DestinationCity = "Zurich",
+                DestinationAirportCode = "ZRH"
+            }
+        }.ToList<FlightDto>().ForEach(it => flightRepository.Save(it));
+    }
 }
