@@ -1,5 +1,12 @@
 using System;
+using System.IO;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+
 using NUnit.Framework;
+using CsvHelper;
+
 using BackingCode;
 
 /// See 'Cause: Mystery Guest' on page 188
@@ -8,6 +15,7 @@ public class MysteryGuest
     [Test]
     public void TestGetFlightsByFromAirport_OneOutboundFlight_mg()
     {
+        LoadAirportsAndFlightsFromFile("test-flights.csv");
     }
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -25,4 +33,6 @@ public class MysteryGuest
         helper = new FixtureHelper(flightRepository);
         facade = new Facade(flightRepository);
     }
+
+    private void LoadAirportsAndFlightsFromFile(string fileName) => helper.LoadAirportsAndFlightsFromFile(fileName);
 }
