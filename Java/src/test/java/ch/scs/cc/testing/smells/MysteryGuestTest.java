@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** See 'Cause: General Fixture' on page 188 */
+/** See 'Cause: Mystery Guest' on page 188 */
 public class MysteryGuestTest {
 
     @Test
