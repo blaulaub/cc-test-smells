@@ -1,7 +1,8 @@
+using System;
 using NUnit.Framework;
-
 using BackingCode;
 
+/// See 'Cause: Eager Test' on page 187
 public class EagerTest
 {
     [Test]
@@ -17,13 +18,28 @@ public class EagerTest
         // set up mileage
         newFlight.Mileage = 1122;
         // exercise mileage translator
-        int actualKilometres = newFlight.MileageAsKm;
+        int actualKilometres = newFlight.GetMileageAsKm();
         // verify results
         int expectedKilometres = 1810;
         Assert.AreEqual(expectedKilometres, actualKilometres);
-
-        // TODO this test is a stub
+        // now try it with a canceled flight
+        newFlight.Cancel();
+        try
+        {
+            newFlight.GetMileageAsKm();
+            Assert.Fail("Expected exception");
+        }
+        catch (InvalidOperationException e)
+        {
+            Assert.AreEqual("Cannot get cancelled flight mileage", e.Message);
+        }
     }
+
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    // above originates from the text book
+    // ------------------------------------
+    // below was added to make it work
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     private string validFlightNumber = "1";
 }
