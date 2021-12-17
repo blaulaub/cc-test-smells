@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Tests_in_NUnit</RootNamespace>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
