@@ -12,7 +12,6 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable( cc-test-smells
-  hello_test.cpp
   eager_test.cpp
 )
 
