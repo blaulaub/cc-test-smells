@@ -15,6 +15,8 @@ public class GeneralFixture
         FlightDto outboundFlight = FindOneOutboundFlight();
         // Exercise System
         List<FlightDto> flightsAtOrigin = facade.GetFlightsByOriginAirportCode(outboundFlight.OriginAirportCode);
+        // Verify Outcome
+        AssertOnlyFlightInDtoList("Flights at origin", outboundFlight, flightsAtOrigin);
     }
 
     [Test]
@@ -24,6 +26,8 @@ public class GeneralFixture
         List<FlightDto> outboundFlights = FindTwoOutboundFlightsFromOneAirport();
         // Exercise System
         List<FlightDto> flightsAtOrigin = facade.GetFlightsByOriginAirportCode(outboundFlights[0].OriginAirportCode);
+        // Verify Outcome
+        AssertExactlyTwoFlightsInDtoList("Flights at origin", outboundFlights, flightsAtOrigin);
     }
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -45,4 +49,9 @@ public class GeneralFixture
     private void SetupStandardAirportsAndFlights() => helper.SetupStandardAirportsAndFlights();
     private FlightDto FindOneOutboundFlight() => helper.FindOneOutboundFlight();
     private List<FlightDto> FindTwoOutboundFlightsFromOneAirport() => helper.FindTwoOutboundFlightsFromOneAirport();
+
+    private void AssertOnlyFlightInDtoList(string message, FlightDto expected, IEnumerable<FlightDto> actual)
+        => AssertionHelper.AssertOnlyFlightInDtoList(message, expected, actual);
+    private void AssertExactlyTwoFlightsInDtoList(string message, IEnumerable<FlightDto> expected, IEnumerable<FlightDto> actual)
+        => AssertionHelper.AssertExactlyTwoFlightsInDtoList(message, expected, actual);
 }
