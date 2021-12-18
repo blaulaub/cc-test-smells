@@ -15,6 +15,10 @@ class Flight {
     const std::string& getAirlineCode() {
         return airlineCode;
     }
+
+    const void* getAirline() {
+        return nullptr;
+    }
 };
 
 #endif  // C___BACKING_CODE_FLIGHT_H_

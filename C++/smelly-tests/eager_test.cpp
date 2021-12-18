@@ -15,4 +15,5 @@ TEST_F(EagerTest, TestFlightMileage_asKm2) {
     // verify constructed object
     EXPECT_EQ(newFlight.flightNumber, validFlightNumber);
     EXPECT_EQ(newFlight.getAirlineCode(), "");
+    EXPECT_TRUE(newFlight.getAirline() == nullptr);
 }
