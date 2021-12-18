@@ -1,3 +1,5 @@
+project( SmellyTests )
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -15,8 +17,11 @@ add_executable( cc-test-smells
 )
 
 target_link_libraries( cc-test-smells
+  backing_code
   gtest_main
 )
+
+include_directories(${BackingCode_SOURCE_DIR})
 
 include(GoogleTest)
 gtest_discover_tests(cc-test-smells)
