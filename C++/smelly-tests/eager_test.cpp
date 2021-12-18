@@ -3,7 +3,7 @@
 #include <flight.h>
 
 class EagerTest : public ::testing::Test {
-public:
+ public:
     std::string validFlightNumber = "1";
 };
 
