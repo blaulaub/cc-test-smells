@@ -1,5 +1,11 @@
 <Project>
     <PropertyGroup>
+        <!-- project -->
         <TargetFramework>net5.0</TargetFramework>
+
+        <!-- testing -->
+        <NUnit-Version>3.13.1</NUnit-Version>
+        <NUnit3TestAdapter-Version>3.17.0</NUnit3TestAdapter-Version>
+        <CsvHelper-Version>27.2.1</CsvHelper-Version>
     </PropertyGroup>
 </Project>

@@ -6,10 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-    <PackageReference Include="NUnit" Version="3.13.1" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
-    <PackageReference Include="coverlet.collector" Version="3.0.2" />
-    <PackageReference Include="CsvHelper" Version="27.2.1" />
+    <PackageReference Include="NUnit" Version="$(NUnit-Version)" />
+    <PackageReference Include="NUnit3TestAdapter" Version="$(NUnit3TestAdapter-Version)" />
+    <PackageReference Include="CsvHelper" Version="$(CsvHelper-Version)" />
 
     <ProjectReference Include="..\BackingCode\BackingCode.csproj" />
     <EmbeddedResource Include="test-flights.csv" />
