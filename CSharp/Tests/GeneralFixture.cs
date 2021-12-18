@@ -13,6 +13,8 @@ public class GeneralFixture
     {
         SetupStandardAirportsAndFlights();
         FlightDto outboundFlight = FindOneOutboundFlight();
+        // Exercise System
+        List<FlightDto> flightsAtOrigin = facade.GetFlightsByOriginAirportCode(outboundFlight.OriginAirportCode);
     }
 
     [Test]
@@ -20,6 +22,8 @@ public class GeneralFixture
     {
         SetupStandardAirportsAndFlights();
         List<FlightDto> outboundFlights = FindTwoOutboundFlightsFromOneAirport();
+        // Exercise System
+        List<FlightDto> flightsAtOrigin = facade.GetFlightsByOriginAirportCode(outboundFlights[0].OriginAirportCode);
     }
 
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
