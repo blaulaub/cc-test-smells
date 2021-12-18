@@ -39,5 +39,5 @@ public class EagerTest {
     // below was added to make it work
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    private FlightNumber validFlightNumber = FlightNumber.fromString("1");
+    private String validFlightNumber = "1";
 }

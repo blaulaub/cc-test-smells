@@ -2,14 +2,14 @@ package ch.scs.cc.testing.smells;
 
 public class Flight {
 
-    private final FlightNumber flightNumber;
+    private final String flightNumber;
     private boolean cancelled;
 
-    public Flight(FlightNumber flightNumber) {
+    public Flight(String flightNumber) {
         this.flightNumber = flightNumber;
     }
 
-    public FlightNumber getNumber() {
+    public String getNumber() {
         return this.flightNumber;
     }
 
