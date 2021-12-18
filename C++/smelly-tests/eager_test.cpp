@@ -2,6 +2,9 @@
 
 #include <flight.h>
 
+class EagerTest : public ::testing::Test {
+};
+
 // Demonstrate some basic assertions.
-TEST(EagerTest, TestFlightMileage_asKm2) {
+TEST_F(EagerTest, TestFlightMileage_asKm2) {
 }
