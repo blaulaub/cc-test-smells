@@ -3,7 +3,7 @@ package ch.scs.cc.testing.smells;
 public class Flight {
 
     private final String flightNumber;
-    private boolean cancelled;
+    private boolean canceled;
 
     public Flight(String flightNumber) {
         this.flightNumber = flightNumber;
@@ -29,7 +29,7 @@ public class Flight {
 
     public int getMileageAsKm() throws InvalidRequestException {
         // TODO this is a stub
-        if (cancelled) {
+        if (canceled) {
             throw new InvalidRequestException("Cannot get cancelled flight mileage");
         } else {
             return 1810;
@@ -38,6 +38,6 @@ public class Flight {
 
     public void cancel() {
         // TODO this is a stub
-        cancelled = true;
+        canceled = true;
     }
 }

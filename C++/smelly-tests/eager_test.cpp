@@ -23,4 +23,6 @@ TEST_F(EagerTest, TestFlightMileage_asKm2) {
     // verify results
     int expectedKilometres = 1810;
     EXPECT_EQ(expectedKilometres, actualKilometres);
+    // now try it with a canceled flight
+    newFlight.cancel();
 }
