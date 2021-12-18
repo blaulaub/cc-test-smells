@@ -9,13 +9,14 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable( hello_test
+add_executable( cc-test-smells
   hello_test.cpp
+  eager_test.cpp
 )
 
-target_link_libraries( hello_test
+target_link_libraries( cc-test-smells
   gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(cc-test-smells)
