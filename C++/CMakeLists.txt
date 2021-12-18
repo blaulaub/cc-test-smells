@@ -4,4 +4,5 @@ project(my_project)
 # GoogleTest requires at least C++11
 set(CMAKE_CXX_STANDARD 11)
 
+add_subdirectory(backing-code)
 add_subdirectory(smelly-tests)
