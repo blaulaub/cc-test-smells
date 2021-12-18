@@ -16,4 +16,11 @@ TEST_F(EagerTest, TestFlightMileage_asKm2) {
     EXPECT_EQ(newFlight.flightNumber, validFlightNumber);
     EXPECT_EQ(newFlight.getAirlineCode(), "");
     EXPECT_TRUE(newFlight.getAirline() == nullptr);
+    // set up mileage
+    newFlight.setMileage(1122);
+    // exercise mileage translator
+    int actualKilometres = newFlight.getMileageAsKm();
+    // verify results
+    int expectedKilometres = 1810;
+    EXPECT_EQ(expectedKilometres, actualKilometres);
 }

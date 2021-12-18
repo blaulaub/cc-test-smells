@@ -4,20 +4,28 @@
 #include <string>
 
 class Flight {
- private:
-    std::string airlineCode = "";
-
  public:
     const std::string flightNumber;
 
     explicit Flight(std::string &flightNumber) : flightNumber(flightNumber) {}
 
-    const std::string& getAirlineCode() {
-        return airlineCode;
+    const std::string getAirlineCode() {
+        // TODO this is a stub
+        return "";
     }
 
     const void* getAirline() {
+        // TODO this is a stub
         return nullptr;
+    }
+
+    void setMileage(int value) {
+        // TODO this is a stub
+    }
+
+    int getMileageAsKm() {
+        // TODO this is a stub
+        return 1810;
     }
 };
 
