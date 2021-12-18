@@ -4,9 +4,8 @@
 #include <string>
 
 class Flight {
- private:
-    const std::string flightNumber;
  public:
+    const std::string flightNumber;
     explicit Flight(std::string &flightNumber) : flightNumber(flightNumber) {}
 };
 
