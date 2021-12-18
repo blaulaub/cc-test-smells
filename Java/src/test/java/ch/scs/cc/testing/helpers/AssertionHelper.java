@@ -4,11 +4,11 @@ import ch.scs.cc.testing.smells.FlightDto;
 
 public class AssertionHelper {
 
-    public static void assertOnlyFlightInDtoList(String message, FlightDto flight, Iterable<FlightDto> flightList) {
+    public static void assertOnlyFlightInDtoList(String message, FlightDto expected, Iterable<FlightDto> actual) {
         // TODO this test helper is a stub
     }
 
-    public static void assertExactlyTwoFlightsInDtoList(String message, Iterable<FlightDto> flights, Iterable<FlightDto> flightList) {
+    public static void assertExactlyTwoFlightsInDtoList(String message, Iterable<FlightDto> expected, Iterable<FlightDto> actual) {
         // TODO this test helper is a stub
     }
 }
