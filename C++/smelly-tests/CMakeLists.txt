@@ -9,12 +9,10 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(
-  hello_test
+add_executable( hello_test
   hello_test.cpp
 )
-target_link_libraries(
-  hello_test
+target_link_libraries( hello_test
   gtest_main
 )
 
