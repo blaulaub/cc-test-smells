@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include <flight.h>
+#include <invalid-request-exception.h>
 
 class EagerTest : public ::testing::Test {
  public:
@@ -28,5 +29,7 @@ TEST_F(EagerTest, TestFlightMileage_asKm2) {
     try {
         newFlight.getMileageAsKm();
         FAIL();
-    } catch (...) {}
+    } catch (const InvalidRequestException& e) {
+        EXPECT_STREQ("Cannot get cancelled flight mileage", e.what());
+    }
 }
