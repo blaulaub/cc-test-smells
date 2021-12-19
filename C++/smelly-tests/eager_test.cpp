@@ -27,5 +27,6 @@ TEST_F(EagerTest, TestFlightMileage_asKm2) {
     newFlight.cancel();
     try {
         newFlight.getMileageAsKm();
+        FAIL();
     } catch (...) {}
 }
