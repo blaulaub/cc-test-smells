@@ -1,8 +1,7 @@
 # Clean Coders: Test Smells
 
-This project illustrates a few examples of test smells. 'Test smell' is a metaphor
-describing the moment when you see some test code and immediately feel: There will be
-problems. 
+'Test smell' is a metaphor describing the moment when you see some test code and immediately feel: There will be
+problems. This project illustrates a few examples of test smells.
 
 This project tries to be multilingual, but at the same time, the examples are centered
 on OO. The original examples stem from old Java before the introduction of generics, but
