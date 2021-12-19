@@ -1,0 +1,7 @@
+Side notes:
+
+- why testing?
+  - Einmal ist keinmal.
+    -> do it more than once (Royce, waterfall: do it twice)
+  - testing is usually the first occurrence of reuse
+    (when somebody says "this will not be reused anyway" -> was it even tested?)
