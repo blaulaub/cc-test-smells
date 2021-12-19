@@ -9,3 +9,5 @@ Side notes:
 - Warum test-first?
   - the proof of the pudding is in the eating
     -> YOU can be confident about your work
+  - gewährleistet meistens 'make-it-fail-make-it-pass'
+    -> mit test-first ohne Implementation wird die ausstehende Implementation geprüft
