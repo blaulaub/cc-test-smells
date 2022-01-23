@@ -1,10 +1,60 @@
 Side notes:
 
 - Warum testing?
+  - wenn es nicht getestet wurde, ist es kaputt (so gut wie...)
   - Einmal ist keinmal.
     -> do it more than once (Royce, waterfall: do it twice)
   - testing is usually the first occurrence of reuse
     (when somebody says "this will not be reused anyway" -> was it even tested?)
+  - beschleunigt die Entwicklung (?)
+
+- Wass heisst "maintainable"?
+  - << gewünschte Eigenschaft >>
+    - << entsprechende Symptome/Merkmale >>
+      - << zielführende Massnahmen >>
+  - einfach zu verstehen
+    - nicht zu gross, nicht zu verstreut
+      - keine shared fixtures (?)
+      - statt dessen aussagekräftiges Inline-Setup
+      - keine 1:1-Beziehung von Code-unter-Test zu den Tests nötig (?)
+    - wie zusätzlich Dokumentation zum Code-unter-Test
+  - einfach auszuführen
+    - keine externen Abhängigkeiten (Internet, Datenbank, Datum, ...)
+      - inject/mock
+    - keine internen Abhängigkeiten (Reihenfolge, ...)
+      - keinen shared state
+  - einfach zu debuggen
+    - klare, eindeutige Ursache-Wirkung-Beziehungen
+    - präzise assertions und präzise Fehlermeldungen
+    - eine assertion pro Test (?)
+    - Test-Daten variieren (nicht immer-gleiche magic numbers)
+    - stabile Tests (nicht flaky)
+      - Abhängigkeit von Zeit, Netzwerk, Zufallsinput, Multi-threading, ...
+  - einfach, den Code-unter-Test zu erweitern/zu ändern
+    - schwache Kopplung an den Code-unter-Test
+    - Kopplung an API, nicht an die Implementation
+      - Test-first
+
+- Maintainable Tests für unmaintainable code ?
+  (oder: gute Tests für schlechten Code ?)
+  - zB. shared state in Tests vermeiden
+    - aber was, wenn der Code shared state beinhaltet ?
+      (Datum & Zeit; Locales; versteckte Caches; globale Counter; ...)
+      (you lose)
+  - zB. Test-Setup einfach gestalten
+    - aber was, wenn der Code-unter-Test nicht einfach aufgesetzt werden kann ?
+      (may require heavy mocking)
+      (you lose)
+    - oder wenn Test-Daten nicht einfach aufgesetzt werden können
+      (eg. large object trees, with strict validation)
+      (may require large fixtures, mitigated by shared fixtures)
+      (you lose)
+  - zB. Tests stabil, non-flaky schreiben
+    - aber was, wenn der Code Resourcen aus dem Internet nachlädt (zB. XSD-Schema)
+    - aber was, wenn der Code race conditions enthält ?
+    - aber was, wenn der Code Probleme mit Schaltsekunden, Schalttagen, Lokalisierungen, CR/LF, OS timer precision ... hat?
+      (may require deep/hidden/mystery mocking) (eg. mystery @MockBean)
+      (you lose)
 
 - Warum test-first?
   - the proof of the pudding is in the eating
