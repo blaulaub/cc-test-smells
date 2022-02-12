@@ -1,6 +1,6 @@
 package ch.scs.clean_coders.bowling_kata;
 
-public class Game {
+public class BowlingGame {
 
     private int rolls[] = new int[21];
     private int currentRoll = 0;
